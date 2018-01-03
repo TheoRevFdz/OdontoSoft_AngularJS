@@ -4,14 +4,14 @@ import (
 	"html/template"
 	"net/http"
 
-	"github.com/TheoRev/OdontoSoft_Backend/controllers"
+	"github.com/TheoRev/OdontoSoft_Backend/controller_api"
 	"github.com/gorilla/mux"
 	"github.com/urfave/negroni"
 )
 
 // SetLoginRouter router para login
 func SetLoginRouter(router *mux.Router) {
-	router.HandleFunc("/api/login", controllers.Login).Methods("POST")
+	router.HandleFunc("/api/login", controller_api.Login).Methods("POST")
 }
 
 // SetLoginGUI router de la gui del login

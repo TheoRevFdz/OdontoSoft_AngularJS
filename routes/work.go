@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/TheoRev/OdontoSoft_Backend/controllers"
+	"github.com/TheoRev/OdontoSoft_Backend/controller_api"
 	"github.com/gorilla/mux"
 	"github.com/urfave/negroni"
 )
@@ -10,9 +10,9 @@ import (
 func SetCrudWorkRouter(router *mux.Router) {
 	prefix := "/api/crud/work"
 	subRouter := mux.NewRouter().PathPrefix(prefix).Subrouter().StrictSlash(true)
-	subRouter.HandleFunc("/", controllers.CreateWork).Methods("POST")
-	subRouter.HandleFunc("/", controllers.UpdateWork).Methods("PUT")
-	subRouter.HandleFunc("/", controllers.DeleteWork).Methods("DELETE")
+	subRouter.HandleFunc("/", controller_api.CreateWork).Methods("POST")
+	subRouter.HandleFunc("/", controller_api.UpdateWork).Methods("PUT")
+	subRouter.HandleFunc("/", controller_api.DeleteWork).Methods("DELETE")
 
 	router.PathPrefix(prefix).Handler(
 		negroni.New(
@@ -25,7 +25,7 @@ func SetCrudWorkRouter(router *mux.Router) {
 func SetFindAllWorksRouter(router *mux.Router) {
 	prefix := "/api/works"
 	subRouter := mux.NewRouter().PathPrefix(prefix).Subrouter().StrictSlash(true)
-	subRouter.HandleFunc("/", controllers.FindAllWork).Methods("GET")
+	subRouter.HandleFunc("/", controller_api.FindAllWork).Methods("GET")
 
 	router.PathPrefix(prefix).Handler(
 		negroni.New(

@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/TheoRev/OdontoSoft_Backend/controllers"
+	"github.com/TheoRev/OdontoSoft_Backend/controller_api"
 	"github.com/gorilla/mux"
 	"github.com/urfave/negroni"
 )
@@ -10,9 +10,9 @@ import (
 func SetCrudTreatmentDetailRouter(router *mux.Router) {
 	prefix := "/api/crud/treatment-detail"
 	subRouter := mux.NewRouter().PathPrefix(prefix).Subrouter().StrictSlash(true)
-	subRouter.HandleFunc("/", controllers.CreateTreatmentDetail).Methods("POST")
-	subRouter.HandleFunc("/", controllers.UpdateTreatmentDetail).Methods("PUT")
-	subRouter.HandleFunc("/", controllers.DeleteTreatmentDetail).Methods("DELETE")
+	subRouter.HandleFunc("/", controller_api.CreateTreatmentDetail).Methods("POST")
+	subRouter.HandleFunc("/", controller_api.UpdateTreatmentDetail).Methods("PUT")
+	subRouter.HandleFunc("/", controller_api.DeleteTreatmentDetail).Methods("DELETE")
 
 	router.PathPrefix(prefix).Handler(
 		negroni.New(
@@ -25,7 +25,7 @@ func SetCrudTreatmentDetailRouter(router *mux.Router) {
 func SetFindAllTreatmentsDetailRouter(router *mux.Router) {
 	prefix := "/api/treatments-detail"
 	subRouter := mux.NewRouter().PathPrefix(prefix).Subrouter().StrictSlash(true)
-	subRouter.HandleFunc("/", controllers.FindAllTreatmentsDetail).Methods("GET")
+	subRouter.HandleFunc("/", controller_api.FindAllTreatmentsDetail).Methods("GET")
 
 	router.PathPrefix(prefix).Handler(
 		negroni.New(
@@ -38,7 +38,7 @@ func SetFindAllTreatmentsDetailRouter(router *mux.Router) {
 func SetFindTreatmentsDetailByTreatmentIDRouter(router *mux.Router) {
 	prefix := "/api/treatments-detail/{id:[0-9]+}"
 	subRouter := mux.NewRouter().PathPrefix(prefix).Subrouter().StrictSlash(true)
-	subRouter.HandleFunc("/", controllers.FindTreatmentsDetailByTreatmentID).Methods("GET")
+	subRouter.HandleFunc("/", controller_api.FindTreatmentsDetailByTreatmentID).Methods("GET")
 
 	router.PathPrefix(prefix).Handler(
 		negroni.New(

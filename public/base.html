@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+{% block header %}
+{% include "base/menubar.html" %}
+{% endblock header %}
+
+{% block content %}
+<h5>
+    Este es el contenido del archivo base
+</h5>
+{% endblock content %}
+
+{% block footer %}
+<h5>
+    Este es el footer del archivo base
+</h5>
+{% endblock footer %}
+
+
+
+{% block extrajs %}
+<script src="{% static 'js/jquery-3.2.1.min.js' %}" charset="utf-8"></script>
+<script src="{% static 'js/materialize.min.js' %}" charset="utf-8"></script>
+{% endblock extrajs %}
+
+<script>
+    $(document).ready(function(){
+        $(".button-collapse").sideNav();
+        $('.modal').modal();
+    });
+</script>
+</body>
+</html>
