@@ -7,7 +7,7 @@ import "time"
 type Patient struct {
 	gorm.Model
 	DateInit     time.Time `json:"date_init" gorm:"not null"`
-	NomApe       string    `json:"nom_ape" gorm:"not null; type:varchar(200)"`
+	NomApe       string    `json:"fgfg" gorm:"not null; type:varchar(200)"`
 	Age          uint      `json:"age" gorm:"not null; type:integer"`
 	Sex          string    `json:"sex" gorm:"not null; type:varchar(1)"`
 	DateNac      time.Time `json:"date_nac" gorm:"not null"`

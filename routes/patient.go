@@ -2,7 +2,6 @@ package routes
 
 import (
 	"github.com/TheoRev/OdontoSoftGo/controller_api"
-	"github.com/TheoRev/OdontoSoftGo/controller"
 	"github.com/gorilla/mux"
 	"github.com/urfave/negroni"
 )
@@ -54,7 +53,7 @@ func ShowAllPatients(router *mux.Router){
 	prefix:="/patients"
 	subRouter:=mux.NewRouter().PathPrefix(prefix)
 	.Subrouter().StrictSlash(true)
-	subRouter.HandlerFunc("/", controller.FindAllPatients)
+	subRouter.HandlerFunc("/", controller_api.FindAllPatients)
 
 	router.PathPrefix(prefix).Handler(
 		negroni.New(
